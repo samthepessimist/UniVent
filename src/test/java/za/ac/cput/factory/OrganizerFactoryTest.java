@@ -1,0 +1,137 @@
+package za.ac.cput.factory;
+
+import org.junit.Test;
+import za.ac.cput.domain.Event;
+import za.ac.cput.domain.Organizer;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+/**Student name: Amanda Msutu
+ * Student number: 222428600
+ * Group: 3H
+ * OrganizerFactoryTest.java
+ * Date: 23 March 2026
+ * **/
+
+public class OrganizerFactoryTest {
+    @Test
+    public void shouldCreateValidOrganizer() {
+        List<Event> events = new ArrayList<>();
+        Organizer organizer = OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", events, "bitdevs@gmail.com");
+        assertNotNull(organizer);
+        assertEquals("Amanda", organizer.getName());
+        assertEquals("amandamsutu02@gmail.com", organizer.getEmail());
+        assertEquals("123", organizer.getPassword());
+        assertEquals("0848882617", organizer.getPhoneNumber());
+        assertEquals("Bitdevs", organizer.getOrganizationName());
+        assertEquals("NGO", organizer.getOrganizationType());
+        assertEquals("bitdevs@gmail.com", organizer.getContactEmail());
+    }
+
+    @Test
+    public void showExceptionIfNameIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void showExceptionIfNameIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void shouldThrowIfEmailNull(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void shouldThrowIfEmailIsInvalid(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("", "amandamsutu02@gmailcom", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void shouldAcceptValidComplexEmail(){
+        Organizer organizer = OrganizerFactory.createOrganizer("Amanda", "amandamsutu02+@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+
+    }
+
+    @Test
+    public void showExceptionIfPasswordIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void showExceptionIfPasswordIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void shouldThrowIfPhoneNumberIsInvalid() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "084", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+        assertEquals("Invalid phone number", exception.getMessage());
+    }
+
+    @Test
+    public void showExceptionIfOrganizationNameIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "0848882617", "", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void showExceptionIfOrganizationNameIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "", "0848882617", "", "NGO", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void showExceptionIfOrganizationTypeIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void showExceptionIfOrganizationTypeIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "", "0848882617", "Bitdevs", "", new ArrayList<>(), "bitdevs@gmail.com");
+        });
+    }
+
+    @Test
+    public void shouldThrowIfContactEmailNull(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "");
+        });
+    }
+
+    @Test
+    public void shouldThrowIfContactEmailIsInvalid(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrganizerFactory.createOrganizer("", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevsgmail.com");
+        });
+    }
+
+    @Test
+    public void shouldAcceptValidComplexContactEmail(){
+        Organizer organizer = OrganizerFactory.createOrganizer("Amanda", "amandamsutu02@gmail.com", "123", "0848882617", "Bitdevs", "NGO", new ArrayList<>(), "bitdevs+@gmail.com");
+
+    }
+}

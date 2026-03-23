@@ -1,17 +1,27 @@
 package za.ac.cput.domain;
 
+import java.util.List;
+
+/**Student name: Amanda Msutu
+ * Student number: 222428600
+ * Group: 3H
+ * Organizer.java
+ * Date: 21 March 2026
+ * **/
+
 public class Organizer extends User {
 
     private String organizationName;
     private String organizationType;
     private String contactEmail;
-    //TODO: add events attribute once Event class exists
+    private List<Event> events;
 
     private Organizer(Builder builder) {
         super(builder);
         this.organizationName = builder.organizationName;
         this.organizationType = builder.organizationType;
         this.contactEmail = builder.contactEmail;
+        this.events = builder.events;
     }
 
     public String getOrganizationName() {
@@ -24,6 +34,10 @@ public class Organizer extends User {
 
     public String getContactEmail() {
         return contactEmail;
+    }
+
+    public List<Event> getEvents() {
+        return events;
     }
 
     @Override
@@ -39,6 +53,7 @@ public class Organizer extends User {
         private String organizationName;
         private String organizationType;
         private String contactEmail;
+        private List<Event> events;
 
         public Builder setOrganizationName(String organizationName) {
             this.organizationName = organizationName;
@@ -52,6 +67,11 @@ public class Organizer extends User {
 
         public Builder setContactEmail(String contactEmail) {
             this.contactEmail = contactEmail;
+            return this;
+        }
+
+        public Builder setEvents(List<Event> events){
+            this.events = events;
             return this;
         }
 

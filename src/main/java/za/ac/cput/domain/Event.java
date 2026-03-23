@@ -5,7 +5,7 @@ public class Event {
     private String name;
     private String description;
     private Organizer organizer;
-    private Venue venue;
+    //private Venue venue;
     private String dateTime;
     private int maxAttendees;
 
@@ -14,7 +14,7 @@ public class Event {
         this.name = builder.name;
         this.description = builder.description;
         this.organizer = builder.organizer;
-        this.venue = builder.venue;
+        //this.venue = builder.venue;
         this.dateTime = builder.dateTime;
         this.maxAttendees = builder.maxAttendees;
 
@@ -36,9 +36,9 @@ public class Event {
         return organizer;
     }
 
-    public Venue getVenue() {
-        return venue;
-    }
+//    public Venue getVenue() {
+//        return venue;
+//    }
 
     public String getDateTime() {
         return dateTime;
@@ -55,7 +55,7 @@ public class Event {
                     ", name='" + name + '\'' +
                     ", description='" + description + '\'' +
                     ", organizer=" + organizer +
-                    ", venue=" + venue +
+//                    ", venue=" + venue +
                     ", dateTime='" + dateTime + '\'' +
                     ", maxAttendees=" + maxAttendees +
                     '}';
@@ -66,7 +66,7 @@ public class Event {
         private String name;
         private String description;
         private Organizer organizer;
-        private Venue venue;
+//        private Venue venue;
         private String dateTime;
         private int maxAttendees;
 
@@ -90,10 +90,10 @@ public class Event {
             return this;
         }
 
-        public Builder setVenue(Venue venue) {
-            this.venue = venue;
-            return this;
-        }
+//        public Builder setVenue(Venue venue) {
+//            this.venue = venue;
+//            return this;
+//        }
 
         public Builder setDateTime(String dateTime) {
             this.dateTime = dateTime;
