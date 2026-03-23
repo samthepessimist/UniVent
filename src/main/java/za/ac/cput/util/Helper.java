@@ -27,5 +27,12 @@ public class Helper {
     public static boolean isValidPhone(String phone) {
         return !isNullOrEmpty(phone) && phone.matches("^\\d{10}$");
     }
+
+    //  Added for BookingFactory
+    public static boolean isValidDateTime(java.time.LocalDateTime dateTime) {
+        // Basic check: not null and not in the past
+        return dateTime != null && !dateTime.isBefore(java.time.LocalDateTime.now());
+    }
+
 }
 
