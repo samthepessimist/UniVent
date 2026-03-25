@@ -39,6 +39,10 @@ public class Helper {
         return !isNullOrEmpty(locationDetails);
     }
 
+    //  Added for BookingFactory
+    public static boolean isValidDateTime(java.time.LocalDateTime dateTime) {
+        // Basic check: not null and not in the past
+        return dateTime != null && !dateTime.isBefore(java.time.LocalDateTime.now());
     public static boolean isValidCapacity(int capacity) {
         return isPositive(capacity);
     }
