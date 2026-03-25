@@ -22,10 +22,26 @@ public class Helper {
         return !isNullOrEmpty(dateTime);
         // You can improve this later to check format like "YYYY-MM-DD HH:MM"
     }
-
-
-    public static boolean isValidPhone(String phone) {
-        return !isNullOrEmpty(phone) && phone.matches("^\\d{10}$");
+    // Venue-specific validation methods
+    public static boolean isValidVenueId(int venueId) {
+        return isPositive(venueId);
     }
+
+    public static boolean isValidVenueName(String venueName) {
+        return !isNullOrEmpty(venueName);
+    }
+
+    public static boolean isValidCampus(String campus) {
+        return !isNullOrEmpty(campus);
+    }
+
+    public static boolean isValidLocationDetails(String locationDetails) {
+        return !isNullOrEmpty(locationDetails);
+    }
+
+    public static boolean isValidCapacity(int capacity) {
+        return isPositive(capacity);
+    }
+
 }
 
