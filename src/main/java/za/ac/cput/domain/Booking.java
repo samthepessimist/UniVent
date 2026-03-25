@@ -51,6 +51,9 @@ public class Booking {
                 '}';
     }
 
+    public void setStatus(String cancelled) {
+    }
+
     // Builder class
     public static class Builder {
         private int bookingId;
