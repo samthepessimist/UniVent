@@ -2,6 +2,7 @@ package za.ac.cput.factoryTest;
 
 import org.junit.Test;
 import za.ac.cput.domain.Student;
+import za.ac.cput.factory.StudentFactory;
 
 import static org.junit.Assert.*;
 

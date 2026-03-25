@@ -5,6 +5,7 @@ import za.ac.cput.domain.Administrator;
 import za.ac.cput.domain.Event;
 import za.ac.cput.domain.Organizer;
 import za.ac.cput.domain.User;
+import za.ac.cput.factory.AdministratorFactory;
 
 import java.util.ArrayList;
 import java.util.List;

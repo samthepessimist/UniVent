@@ -3,6 +3,7 @@ package za.ac.cput.factoryTest;
 import org.junit.Test;
 import za.ac.cput.domain.Event;
 import za.ac.cput.domain.Organizer;
+import za.ac.cput.factory.OrganizerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
