@@ -19,11 +19,11 @@ public class TicketFactory {
                                       int ticketCode) {
 
         if (!Helper.isPositive(ticketId)) {
-            throw new IllegalArgumentException("Ticket ID must be valid");
+            throw new IllegalArgumentException("Ticket ID must be greater than 0");
         }
 
         if (!Helper.isPositive(bookingId)) {
-            throw new IllegalArgumentException("Booking ID must be valid");
+            throw new IllegalArgumentException("Booking ID must be greater than 0");
         }
 
         if (!Helper.isPositive(issueDate)) {
@@ -31,7 +31,7 @@ public class TicketFactory {
         }
 
         if (!Helper.isPositive(ticketCode)) {
-            throw new IllegalArgumentException("Ticket code must be valid");
+            throw new IllegalArgumentException("Ticket code must be greater than 0");
         }
 
         return new Ticket.Builder()
